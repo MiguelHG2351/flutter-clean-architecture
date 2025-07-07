@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/core/router/app_router.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -27,12 +28,13 @@ class Bootstrap extends StatelessWidget {
         //   create: (context) => getIt<MyBlocOrCubit>(),
         // ),
       ],
-      child: const MaterialApp(
-        home: Scaffold(
-          body: Center(
-            child: Text('Hello World!'),
-          ),
-        ),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: router(),
+        builder: (context, child) {
+          // This is where you can set up your theme, localization, etc.
+          return child ?? SizedBox.shrink();
+        },
       ),
     );
   }
