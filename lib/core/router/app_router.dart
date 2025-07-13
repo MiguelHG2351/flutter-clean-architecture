@@ -4,7 +4,7 @@ import 'package:flutter_clean_architecture/feature/counter/presentation/pages/co
 
 GoRouter router([String? initialLocation]) => GoRouter(
       debugLogDiagnostics: kDebugMode || kProfileMode,
-      initialLocation: initialLocation ?? '/',
+      initialLocation: initialLocation ?? '/counter',
       routes: [
         GoRoute(
           path: CounterPage.path,

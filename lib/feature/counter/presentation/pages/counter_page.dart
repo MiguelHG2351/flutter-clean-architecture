@@ -14,7 +14,7 @@ class CounterPage extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: const Center(child: CounterText()),
+      body: Center(child: CounterText()),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -41,7 +41,7 @@ class CounterText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final count = context.select((CounterCubit cubit) => cubit.state);
+    final count = context.read<CounterCubit>().state;
     return Text('$count', style: theme.textTheme.displayLarge);
   }
 }
