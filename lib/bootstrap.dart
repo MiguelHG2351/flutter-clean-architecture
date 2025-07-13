@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/router/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -31,6 +33,16 @@ class Bootstrap extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: router(),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'), // English
+          // Locale('es'), // Spanish
+        ],
         builder: (context, child) {
           // This is where you can set up your theme, localization, etc.
           return child ?? SizedBox.shrink();

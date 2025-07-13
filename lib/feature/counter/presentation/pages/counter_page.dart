@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/feature/counter/presentation/blocs/counter_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CounterPage extends StatelessWidget {
   static const String path = '/counter';
@@ -10,6 +11,7 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
       body: const Center(child: CounterText()),
@@ -37,7 +39,9 @@ class CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     final count = context.select((CounterCubit cubit) => cubit.state);
-    return Text('$count', style: context.theme.textTheme.displayLarge);
+    return Text('$count', style: theme.textTheme.displayLarge);
   }
 }
