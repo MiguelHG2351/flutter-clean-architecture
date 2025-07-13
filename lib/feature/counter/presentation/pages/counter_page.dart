@@ -41,7 +41,10 @@ class CounterText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final count = context.read<CounterCubit>().state;
-    return Text('$count', style: theme.textTheme.displayLarge);
+    return BlocBuilder<CounterCubit, CounterState>(
+      builder: (context, state) {
+        return Text('${state.value}', style: theme.textTheme.displayLarge);
+      },
+    );
   }
 }
