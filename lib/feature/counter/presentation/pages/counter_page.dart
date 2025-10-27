@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/feature/counter/presentation/blocs/counter_cubit.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_clean_architecture/core/l10n/app_localizations.dart';
 
 class CounterPage extends StatelessWidget {
   static const String path = '/counter';
